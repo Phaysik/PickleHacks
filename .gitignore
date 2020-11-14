@@ -2,3 +2,7 @@
 *.o
 .mypy_cache
 *.vscode
+*.log
+*.png
+*.jpg
+*.jpeg
