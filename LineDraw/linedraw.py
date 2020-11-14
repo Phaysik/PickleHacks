@@ -208,7 +208,7 @@ def sketch(path):
 
 def makesvg(lines, w, h):
     print("generating svg file...")
-    out = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width = "' + str(w) + '" height = "' + str(h) + '">'
+    out = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width = "' + '1024' + '" height = "' + '1024' + '">'
     for l in lines:
         l = ",".join([str(p[0]*0.5)+","+str(p[1]*0.5) for p in l])
         out += '<polyline points="'+l+'" stroke="black" stroke-width="2" fill="none" />\n'
