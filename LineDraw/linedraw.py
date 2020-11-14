@@ -4,10 +4,10 @@ import argparse
 
 from PIL import Image, ImageDraw, ImageOps
 
-from LineDraw.filters import *
-from LineDraw.strokesort import *
-from LineDraw import perlin
-from LineDraw.util import *
+from filters import *
+from strokesort import *
+import perlin
+from util import *
 
 no_cv = False
 export_path = "output/out.svg"

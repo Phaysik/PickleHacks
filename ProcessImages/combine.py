@@ -45,7 +45,6 @@ def main() -> None:
         
     images: List[Image] = []
     for i in range(8):
-        print(sys.argv[i + 1])
         images.append(Image.open(f'{sys.argv[i + 1]}'))
     
     concatenatedlt: Image = get_concat_v(images[0], images[1])
