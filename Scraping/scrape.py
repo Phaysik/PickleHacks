@@ -26,17 +26,21 @@ def main() -> None:
     
     images: List[str] = [i.get_attribute("src") for i in driver.find_elements_by_tag_name('img')]
     
+    imageMax: int = 10
+    
     for imageurl in images:
-        if '.jpg' in imageurl or '.png' in imageurl or '.jpeg' in imageurl:
+        if ('.jpg' in imageurl or '.png' in imageurl or '.jpeg' in imageurl) and imageMax != 0:
             r = get(imageurl, stream=True, headers={'User-Agent': 'Mozilla/5.0'})
             if r.status_code == 200:
-                name: str = imageurl.split('/')[-1]
+                name: str = imageurl.split('/')[-1].split('?')[0]
                 names.append(name)
                 print(f'Downloading {name} to ./Images/')
 
                 with open(f'./Images/{name}', 'wb') as f:
                     for chunk in r:
                         f.write(chunk)
+                        
+                imageMax -= 1
 
     print('Writing the image names to a file')
     
