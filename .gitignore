@@ -1,0 +1,4 @@
+*.out
+*.o
+.mypy_cache
+*.vscode
