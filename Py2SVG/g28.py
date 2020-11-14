@@ -13,7 +13,9 @@ def main() -> None:
         print('You must pass in the filename of the gcode output to this python script')
         quit(0)
     
-    with open(f'./gcode_output/{sys.argv[1]}.gcode', 'r') as f:
+    path: str = sys.argv[1].split('/')[3]
+    
+    with open(f'./gcode_output/{path}.gcode', 'r') as f:
         lines: List[str] = f.readlines()
         hold: List[str] = []
         hold.append(lines[0])
@@ -24,7 +26,7 @@ def main() -> None:
                 
         hold.append(lines[len(lines) - 1])
         
-    with open(f'./gcode_output/{sys.argv[1]}.gcode', 'w') as f:
+    with open(f'./gcode_output/{path}.gcode', 'w') as f:
         for line in hold:
             f.write(line)
 

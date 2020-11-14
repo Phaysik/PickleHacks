@@ -14,16 +14,18 @@ def main() -> None:
         quit(0)
     
     lines: List[str] = []
-    with open(f'./gcode_output/{sys.argv[1]}.gcode', 'r') as f:
+    path: str = sys.argv[1].split('/')[3]
+    
+    with open(f'./gcode_output/{path}.gcode', 'r') as f:
         lines = f.readlines()
         
     for i in range(len(lines)):
         if 'X' in lines[i] and 'G0' in lines[i]:
             newX: float = float(lines[i].split('X')[1].split(' ')[0]) + 40.0
-            newY: float =  float(lines[i].split('Y')[1]) - 120.0
+            newY: float =  float(lines[i].split('Y')[1].split(' ')[0]) - 120.0
             lines[i] = f'G0 X{newX:.1f} Y{newY:.1f} F2400\n'
 
-    with open(f'./gcode_output/{sys.argv[1]}.gcode', 'w') as f:
+    with open(f'./gcode_output/{path}.gcode', 'w') as f:
         for line in lines:
             f.write(f'{line}')
     

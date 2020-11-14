@@ -43,10 +43,31 @@ images() {
     cd "../"
 }
 
+pngtosvg() {
+    cd "./LineDraw"
+
+    ./requirements.sh
+    ./line.sh "$1"
+
+    cd "../"
+}
+
+svgtogcode() {
+    cd "./Py2SVG"
+
+    ./shift.sh "$1"
+
+    cd "../"
+}
+
 main() {
     scraping "$1"
 
     images
+
+    pngtosvg "../ProcessImages/Images/concatenated.png"
+
+    svgtogcode "../LineDraw/output/out"
 }
 
 main "$@"
