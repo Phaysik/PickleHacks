@@ -1,2 +1,0 @@
-# PickleHacks
-Triangle Picklehacks project
