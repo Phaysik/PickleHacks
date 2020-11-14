@@ -1,3 +1,5 @@
+#!/bin/bash
+
 main() {
     echo "Make sure to run 'requirements.sh' before running this"
 

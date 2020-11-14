@@ -29,7 +29,6 @@ def main() -> None:
     imageMax: int = 10
     
     for imageurl in images:
-        print(imageurl)
         if imageurl != None and ('.jpg' in imageurl or '.png' in imageurl or '.jpeg' in imageurl) and imageMax != 0:
             r = get(imageurl, stream=True, headers={'User-Agent': 'Mozilla/5.0'})
             if r.status_code == 200:

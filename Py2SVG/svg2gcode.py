@@ -6,11 +6,10 @@ import sys
 import xml.etree.ElementTree as ET
 
 # Local Imports
-sys.path.insert(0, './Py2SVG')
-from config import *
-sys.path.insert(0, './Py2SVG/lib') # (Import from lib folder)
+sys.path.insert(0, './lib') # (Import from lib folder)
 import shapes as shapes_pkg
 from shapes import point_generator
+from config import *
 
 
 DEBUGGING = True

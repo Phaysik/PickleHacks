@@ -2,16 +2,16 @@
 """
 Author   : Matthew Moore
 Date     : 11/13/2020 
-Revision : 11/13/2020
+Revision : 11/14/2020
 """
 
-from PIL import Image, ImageDraw
-import sys
+from PIL import Image, ImageDraw, ImageFont
 from typing import List
 from random import randint
 
 def main() -> None:
     caption: List[str] = []
+    
     with open("./Phrase.txt", 'r') as f:
         lines: List[str] = [i.replace('\n', '') for i in f.readlines()]
         for i in range(4):
@@ -24,12 +24,14 @@ def main() -> None:
         img: Image = Image.new('RGB', (756, 100), "white")
 
         d: ImageDraw = ImageDraw.Draw(img)
+        
+        font: ImageFont = ImageFont.truetype("arial.ttf", 30)
 
-        d.text((60, 60), caption[i], fill=(0, 0, 0))
+        d.text((200, 50), caption[i], font=font, fill=(0, 0, 0))
 
         print(f"Saving {caption[i + 1]}.png to Images/")
+        
         img.save(f'./Images/{caption[i + 1]}.png')
     
-
 if __name__ == "__main__":
     main()
