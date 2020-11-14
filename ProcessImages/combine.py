@@ -5,6 +5,8 @@ Date     : 11/13/2020
 Revision : 11/13/2020
 """
 from PIL import Image
+from typing import List
+import sys
 
 def get_concat_h(im1: Image, im2: Image) -> Image:
     dst: Image = Image.new('RGB', (im1.width + im2.width, im1.height))
@@ -19,19 +21,18 @@ def get_concat_v(im1: Image, im2: Image) -> Image:
     return dst
 
 def main() -> None:
-    lhstt: Image = Image.open('test.png')
-    lhstb: Image = Image.open('newTest.png')
-    rhstt: Image = Image.open('rht.png')
-    rhstb: Image = Image.open('rhb.png')
-    lhsbt: Image = Image.open('lhsbt.png')
-    lhsbb: Image = Image.open('lhsbb.png')
-    rhsbt: Image = Image.open('rhsbt.png')
-    rhsbb: Image = Image.open('rhsbb.png')
+    if len(sys.argv) != 9:
+        print('You must pass at least 8 arguments to this python file')
+        quit(0)
+        
+    images: List[Image] = []
+    for i in range(8):
+            images.append(Image.open(f'{sys.argv[i + 1]}'))
     
-    concatenatedlt: Image = get_concat_v(lhstt, lhstb)
-    concatenatedrt: Image = get_concat_v(rhstt, rhstb)
-    concatenatedlb: Image = get_concat_v(lhsbt, lhsbb)
-    concatenatedrb: Image = get_concat_v(rhsbt, rhsbb)
+    concatenatedlt: Image = get_concat_v(images[0], images[1])
+    concatenatedrt: Image = get_concat_v(images[2], images[3])
+    concatenatedlb: Image = get_concat_v(images[4], images[5])
+    concatenatedrb: Image = get_concat_v(images[6], images[7])
     concatenatedt: Image = get_concat_h(concatenatedlt, concatenatedrt)
     concatenatedb: Image = get_concat_h(concatenatedlb, concatenatedrb)
     
