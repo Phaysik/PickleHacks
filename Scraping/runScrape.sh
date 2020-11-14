@@ -6,8 +6,13 @@ main() {
         exit 0 
     fi
 
-    echo "Deleting all the images in ./Images/"
-    rm -rf ./Images/*
+    if [ -d "./Images" ]; then
+        echo "Deleting all the images in ./Images/"
+        rm -rf ./Images/*
+    else
+        echo "Creating an Images folder"
+        mkdir Images
+    fi
 
     python scrape.py "$1"
 }
