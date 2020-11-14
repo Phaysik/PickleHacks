@@ -15,8 +15,8 @@ draw_contours = True
 draw_hatch = True
 show_bitmap = False
 resolution = 1024
-hatch_size = 16
-contour_simplify = 2
+hatch_size = 8
+contour_simplify = 1
 
 try:
     import numpy as np

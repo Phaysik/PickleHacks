@@ -39,7 +39,7 @@ def generate_gcode(filename):
         dir_string += folder + '/'
 
     # Make Output File
-    outdir = dir_string + "gcode_output/"
+    outdir = "./gcode_output/"
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     outfile = outdir + file.split(".svg")[0] + '.gcode'

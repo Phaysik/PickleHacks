@@ -25,9 +25,9 @@ def main() -> None:
 
         d: ImageDraw = ImageDraw.Draw(img)
         
-        font: ImageFont = ImageFont.truetype("arial.ttf", 30)
+        font: ImageFont = ImageFont.truetype('calibri.ttf', 80)
 
-        d.text((200, 50), caption[i], font=font, fill=(0, 0, 0))
+        d.text((0, 0), caption[i], font=font, fill=(0, 0, 0))
 
         print(f"Saving {caption[i + 1]}.png to Images/")
         

@@ -21,8 +21,8 @@ def main() -> None:
         
     for i in range(len(lines)):
         if 'X' in lines[i] and 'G0' in lines[i]:
-            newX: float = float(lines[i].split('X')[1].split(' ')[0]) + 40.0
-            newY: float =  float(lines[i].split('Y')[1].split(' ')[0]) - 120.0
+            newX: float = float(lines[i].split('X')[1].split(' ')[0]) + 60.0
+            newY: float =  float(lines[i].split('Y')[1].split(' ')[0]) - 170.0
             lines[i] = f'G0 X{newX:.1f} Y{newY:.1f} F2400\n'
 
     with open(f'./gcode_output/{path}.gcode', 'w') as f:

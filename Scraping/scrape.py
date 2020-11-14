@@ -28,7 +28,7 @@ def main() -> None:
     
     images: List[str] = [i.get_attribute("src") for i in driver.find_elements_by_tag_name('img')]
     
-    imageMax: int = 10
+    imageMax: int = 20
     
     for imageurl in images:
         if imageurl != None and ('.jpg' in imageurl or '.png' in imageurl or '.jpeg' in imageurl) and imageMax != 0:
@@ -50,7 +50,7 @@ def main() -> None:
         for name in names:
             writer.write(f'{name}\n')
 
-    size = 240, 160
+    size = 700, 550
     for name in names:
         pic = Image.open(f'./Images/{name}')
         resize_pic = pic.resize(size, Image.ANTIALIAS)

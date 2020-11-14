@@ -28,4 +28,4 @@ bed_max_y =  300
 ''' Used to control the smoothness/sharpness of the curves.
     Smaller the value greater the sharpness. Make sure the
     value is greater than 0.1'''
-smoothness = 0.2
+smoothness = 0.4
