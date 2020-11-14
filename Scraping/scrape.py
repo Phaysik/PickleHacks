@@ -9,7 +9,9 @@ from selenium import webdriver
 from requests import get
 from typing import List
 from validators import url
+from PIL import Image
 import sys
+import os, glob
 
 def main() -> None:
     if (len(sys.argv) != 2):
@@ -47,7 +49,17 @@ def main() -> None:
     with open('filenames.txt', 'w') as writer:
         for name in names:
             writer.write(f'{name}\n')
-    
+
+    size = 240, 160
+    for name in names:
+        pic = Image.open(f'./Images/{name}')
+        resize_pic = pic.resize(size, Image.ANTIALIAS)
+        resize_pic.save(f'./Images/resized_{name}.png')
+        
+    print('Deleting images')
+    for filename in glob.glob(f'./Images/*.jpg'):
+        os.remove(filename)
+
     driver.close()
     
     print('Execution complete')
