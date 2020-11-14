@@ -198,9 +198,12 @@ def test(filename):
     return circle_gcode
 
 
+def main() -> None:
+    if len(sys.argv) != 2:
+        print("You must pass in the svg filename to this python script")
+        quit(0)
+    
+    generate_gcode(f'{sys.argv[1]}.svg')
 
 if __name__ == "__main__":
-    ''' If this file is called by itself in the command line
-        then this will execute.'''
-    file = input("Please supply a filename: ")
-    generate_gcode(file)
+    main()
