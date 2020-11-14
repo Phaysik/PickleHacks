@@ -15,7 +15,7 @@ def MakeThatShitIntoLines():
     
     combine.combine(imageIndices)
             
-    #lines = linedraw.sketch('concatenated.png')                                 
+    lines = linedraw.sketch('concatenated.png')                                 
     svg2gcode.generate_gcode("./output/out.svg")
 
 MakeThatShitIntoLines()
