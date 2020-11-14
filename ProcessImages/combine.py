@@ -20,6 +20,20 @@ def get_concat_v(im1: Image, im2: Image) -> Image:
     dst.paste(im2, (0, im1.height))
     return dst
 
+def combine(imageFiles):
+    images: List[Image] = []
+    for i in range(8):
+            images.append(Image.open(f'{imageFiles[i]}'))
+    
+    concatenatedlt: Image = get_concat_v(images[0], images[1])
+    concatenatedrt: Image = get_concat_v(images[2], images[3])
+    concatenatedlb: Image = get_concat_v(images[4], images[5])
+    concatenatedrb: Image = get_concat_v(images[6], images[7])
+    concatenatedt: Image = get_concat_h(concatenatedlt, concatenatedrt)
+    concatenatedb: Image = get_concat_h(concatenatedlb, concatenatedrb)
+    
+    get_concat_v(concatenatedt, concatenatedb).save('concatenated.png')
+    
 def main() -> None:
     if len(sys.argv) != 9:
         print('You must pass at least 8 arguments to this python file')
